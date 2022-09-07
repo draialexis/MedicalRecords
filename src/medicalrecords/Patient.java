@@ -12,9 +12,9 @@ public class Patient {
     private final String lastName;
     private final String firstName;
 
-    public Patient(String lastName, String firstName) {
-        this.lastName = lastName;
+    public Patient(String firstName, String lastName) {
         this.firstName = firstName;
+        this.lastName = lastName;
     }
     
     public String getLastName(){
