@@ -5,6 +5,7 @@
 package medicalrecords;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,9 +19,12 @@ public class PatientManager {
         this.patients = new ArrayList<>();
     }
     
+    /**
+     * Get all patients from the list
+     * @return an unmodifiable view of the list of all patients
+     */
     public List<Patient> getAll(){
-        //TODO make it readonly
-        return this.patients;
+        return Collections.unmodifiableList(this.patients);
     }
     
     public void createOne(Patient newPatient){
