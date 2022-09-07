@@ -4,7 +4,7 @@
  */
 package medicalrecords;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,17 +15,15 @@ public class PatientManager {
     private final List<Patient> patients;
 
     public PatientManager() {
-        this.patients = new LinkedList<>();
+        this.patients = new ArrayList<>();
     }
-    
-    
     
     public List<Patient> getAll(){
         //TODO make it readonly
         return this.patients;
     }
     
-    public void CreateOne(Patient newPatient){
+    public void createOne(Patient newPatient){
         this.patients.add(newPatient);
     }
 }
