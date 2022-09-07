@@ -12,50 +12,63 @@ import java.util.Scanner;
  * @author aldrai
  */
 public class Displayer {
+
     private final PatientManager patientManager;
-    private final Scanner in;
+    private final Scanner scanner;
 
     public Displayer() {
         this.patientManager = new PatientManager();
-        this.in = new Scanner(System.in);
+        this.scanner = new Scanner(System.in);
     }
 
-    public void showMenu(){
-        while(true){
+    public void showMenu() {
+        boolean isQuitting = false;
+        while (!isQuitting) {
             int choice;
-            System.out.println("1) to register a patient");
-            System.out.println("2) to display all patients");
-            choice = in.nextInt();
-            //flush?
-            switch(choice){
-                case(1) -> { 
+            System.out.println("0........to quit this program");
+            System.out.println("1........to register a patient");
+            System.out.println("2........to display all patients");
+            choice = scanner.nextInt();
+            switch (choice) {
+                case (1) -> {
                     String firstName, lastName;
-                    System.out.println("enter FIRST name");
-                    firstName = in.nextLine();
-                    //flush?
-                    System.out.println("enter LAST name");
-                    lastName = in.nextLine();
-                    //flush?
-                    Patient newPatient = new Patient(firstName, lastName);
-                    registerPatient(newPatient);
+                    firstName = requestString("enter FIRST name (no spaces allowed)");
+                    lastName = requestString("enter LAST name (no spaces allowed)");
+                    if (firstName != null && lastName != null) {
+                        Patient newPatient = new Patient(firstName, lastName);
+                        registerPatient(newPatient);
+                    }
                 }
-                    
+                case (2) -> {
+                    showAllPatients();
+                }
+                case (0) -> {
+                    isQuitting = true;
+                }
+                default -> {
+                    System.out.println("you must choose between 1 and 2, or quit with 0");
+                }
             }
-            //...
-            // break if user exits, if critical error, etc.
-            // in.close()
         }
     }
-    
-    private void showAllPatients(){
+
+    private void showAllPatients() {
         List<Patient> displayed = this.patientManager.getAll();
-        for(Patient patient: displayed){
+        System.out.println("list of patients:");
+        for (Patient patient : displayed) {
             System.out.println(patient);
         }
     }
-    
-    private void registerPatient(Patient newPatient){
+
+    private void registerPatient(Patient newPatient) {
         this.patientManager.createOne(newPatient);
     }
-    
+
+    private String requestString(String msg) {
+        String input;
+        System.out.println(msg);
+        input = scanner.next();
+        scanner.nextLine();
+        return input;
+    }
 }
