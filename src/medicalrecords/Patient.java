@@ -9,8 +9,8 @@ package medicalrecords;
  * @author aldrai
  */
 public class Patient {
-    private String lastName;
-    private String firstName;
+    private final String lastName;
+    private final String firstName;
 
     public Patient(String lastName, String firstName) {
         this.lastName = lastName;
