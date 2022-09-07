@@ -15,6 +15,16 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //Displayer displayer = new Displayer();
+        //PatientManager manager = displayer.getPatientManager();
+        //System.out.println(manager.getAll());
+        //Patient alice = new Patient("Alice", "Foo");
+        //manager.createOne(alice);
+        //System.out.println(manager.getAll());
+        
+        Displayer displayer = new Displayer();
+      
+        //displayer.showMenu();
     }
     
 }

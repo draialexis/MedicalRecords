@@ -13,6 +13,7 @@ public class Patient {
     private final String firstName;
 
     public Patient(String firstName, String lastName) {
+        //TODO add validation (cannot be empty or null...)
         this.firstName = firstName;
         this.lastName = lastName;
     }
