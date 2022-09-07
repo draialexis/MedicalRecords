@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package medicalrecords;
 
-/**
- *
- * @author aldrai
- */
 public class Patient {
     /**
      * <em>required</em>
@@ -20,7 +12,6 @@ public class Patient {
 
     public Patient(String firstName, String lastName) 
             throws IllegalArgumentException {
-        //TODO add validation (cannot be empty or null...)
         if(firstName == null || firstName.isBlank() 
                 || lastName == null || lastName.isBlank()){
             throw new IllegalArgumentException("!!>> both names need to be registered");
