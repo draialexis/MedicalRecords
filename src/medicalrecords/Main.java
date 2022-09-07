@@ -24,7 +24,7 @@ public class Main {
         
         Displayer displayer = new Displayer();
       
-        //displayer.showMenu();
+        displayer.showMenu();
     }
     
 }
