@@ -4,9 +4,9 @@ public class Main {
 
     public static void main(String[] args) {
         
-        CLI displayer = new CLI();
+        CLI cli = new CLI();
       
-        displayer.showMenu();
+        cli.showMenu();
     }
     
 }
