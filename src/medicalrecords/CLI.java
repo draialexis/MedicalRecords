@@ -3,12 +3,12 @@ package medicalrecords;
 import java.util.List;
 import java.util.Scanner;
 
-public class Displayer {
+public class CLI {
 
     private final PatientManager patientManager;
     private final Scanner scanner;
 
-    public Displayer() {
+    public CLI() {
         this.patientManager = new PatientManager();
         this.scanner = new Scanner(System.in);
     }
@@ -53,7 +53,7 @@ public class Displayer {
     }
 
     private void registerPatient(Patient newPatient) {
-        this.patientManager.createOne(newPatient);
+        this.patientManager.addOne(newPatient);
     }
 
     private String requestString(String msg) {

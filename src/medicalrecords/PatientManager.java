@@ -19,7 +19,7 @@ public class PatientManager {
         return Collections.unmodifiableList(this.patients);
     }
     
-    public void createOne(Patient newPatient){
+    public void addOne(Patient newPatient){
         this.patients.add(newPatient);
     }
 }
