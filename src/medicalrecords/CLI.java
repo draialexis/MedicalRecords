@@ -16,25 +16,23 @@ public class CLI {
     public void showMenu() {
         boolean isQuitting = false;
         while (!isQuitting) {
-            int choice;
             System.out.println("0........to quit this program");
             System.out.println("1........to register a patient");
             System.out.println("2........to display all patients");
-            choice = scanner.nextInt();
-            switch (choice) {
-                case (1) -> {
+            switch (scanner.nextLine()) {
+                case ("1") -> {
                     String firstName, lastName;
-                    firstName = requestString("enter FIRST name (no spaces allowed)");
-                    lastName = requestString("enter LAST name (no spaces allowed)");
+                    firstName = requestLine("enter FIRST name");
+                    lastName = requestLine("enter LAST name");
                     if (firstName != null && lastName != null) {
                         Patient newPatient = new Patient(firstName, lastName);
                         registerPatient(newPatient);
                     }
                 }
-                case (2) -> {
+                case ("2") -> {
                     showAllPatients();
                 }
-                case (0) -> {
+                case ("0") -> {
                     isQuitting = true;
                 }
                 default -> {
@@ -56,11 +54,10 @@ public class CLI {
         this.patientManager.addOne(newPatient);
     }
 
-    private String requestString(String msg) {
+    private String requestLine(String msg) {
         String input;
         System.out.println(msg);
-        input = scanner.next();
-        scanner.nextLine();
+        input = scanner.nextLine();
         return input;
     }
 }
