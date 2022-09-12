@@ -43,11 +43,8 @@ public class CLI {
     }
 
     private void showAllPatients() {
-        List<Patient> displayed = this.patientManager.getAll();
         System.out.println("list of patients:");
-        for (Patient patient : displayed) {
-            System.out.println(patient);
-        }
+        this.patientManager.getAll().forEach(System.out::println);
     }
 
     private void registerPatient(Patient newPatient) {
